@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -43,4 +44,13 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    // Firebase BoM (Bill of Materials)으로 모든 Firebase 라이브러리 버전 관리
+    implementation(platform("com.google.firebase:firebase-bom:32.1.1"))
+
+    // Firestore 라이브러리
+    implementation("com.google.firebase:firebase-firestore-ktx")
+
+    // Firebase Core (기본 Firebase 기능 사용 시 추가 가능)
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
